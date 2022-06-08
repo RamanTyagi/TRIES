@@ -1,0 +1,87 @@
+#Trie:
+A trie or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings
+There are various applications of this data structure such as autocomplete and spell checker.
+
+#Functions:
+* Insert(word) : To insert a string 'word' in trie.
+* Search(word) : To check if a string 'word' is present in a trie or not.
+* StartsWith(word) : To check if their is any string in the trie that starts with the given prefix string "word".
+
+#Bit PreRequisites for TRIE Problems:
+Link : https://www.youtube.com/watch?v=5iyuU4hQFrw&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp&index=5
+* XOR :
+-> Gives true for odd number of 1's and gives false for even number of 1's
+
+* Check if a particular bit is set or not:
+->((num>>i))&1) != 0 { Right shift kra hai number ko uski ith bit check krne ke lie }
+
+* How to turn on a bit:
+->num | (1<<i) {Left shift }
+
+#Implementation of Trie:
+Approach : 
+* Ek root node to hogi hi jisse hm baar baar trie pe traverse kr paenge!
+* Agr koi character present hai phle se('containsKey' use krke ) to us reference pe chle jao mtlb aage bdh jao ('get' Use krke) .
+* Nhi present to use insert krao ('put' use krke) .
+* Word ko insert krte time Akhiri character ke reference node pe flag ko true krdo ('setFlag' Use krke) .
+* Kse pta chlega koi particular word present hai ya nhi ('getFlag' Use krke) .
+
+#1.Trie:1
+Link : https://www.codingninjas.com/codestudio/problems/implement-trie_631356
+
+#2.Trie:2
+->Count with starting with / containing words equal to find krne ke lie use cp(count prefix) and ew(end width)
+->Hr ek character ko traverse krne ke baad uski reference node pe move krte hi cp++.
+->Akhri character ki reference node pe ew++.(For word counting)
+Link : https://www.codingninjas.com/codestudio/problems/implement-trie_1387095
+
+#3.Longest word with all prefixes/Complete string
+Link : https://www.codingninjas.com/codestudio/problems/complete-string_2687860
+Approach:
+* Saare words daal lo ek baar trie mein
+* Ab hr ek word ko check kro trie mein ki kya us word ke hr ek character ke reference node ka flag true hai kya :
+* Agr hai to vo word contender ho skta hai
+* For checking lexicographically smallest between two words , we can simple check if(it<longest)
+
+#4.Number of Distinct Substrings in a String
+Link : https://www.codingninjas.com/codestudio/problems/count-distinct-substrings_985292
+Approach:
+* Saare substrings ko daal do trie mein ek baar.
+* Ab dobara traverse krke bs jitne flag true hai vo return krdo
+* ye hi distinct substrings de dega.
+Optimised Approach : Use hashing.
+
+#5.Maximum XOR
+Link : https://www.codingninjas.com/codestudio/problems/maximum-xor_973113
+Approach:
+* arr1 ke saare numbers ko trie mein daaldia ( bit by bit add krege )
+* Ab arr 2 pe traverse krke check krte gye trie mein ki max kse niklega.
+* Xor mein maximum kb aaega -> Jb apne pe ulti bit ho dono numbers mein bs yei chiz check krke maxi mein set krte gye bits.
+* Snippet of findMax
+    int findMax(int num)
+    {
+        TrieNode *node = root;
+        int maxi = 0;
+        for(int i=31;i>=0;i--)
+        {
+            int bit = (num>>i)&1;
+            if(node->containsKey(1-bit))
+            {
+                maxi = maxi | (1<<i);
+                node = node->get(1-bit);
+            }
+            else
+            {
+               node = node->get(bit);
+            }
+        }
+        return maxi;
+    }
+    
+#6. Maximum XOR With an Element From Array|Queries
+Link : https://www.codingninjas.com/codestudio/problems/max-xor-queries_1382020
+Approach :
+->Approach is similar to above problem + Use of offline queries.
+
+
+
