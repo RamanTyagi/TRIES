@@ -51,7 +51,7 @@ Approach:
 * ye hi distinct substrings de dega.
 Optimised Approach : Use hashing.
 
-#5.Maximum XOR
+#5.Maximum XOR { V-IMP Question }
 Link : https://www.codingninjas.com/codestudio/problems/maximum-xor_973113
 Approach:
 * arr1 ke saare numbers ko trie mein daaldia ( bit by bit add krege )
@@ -78,10 +78,11 @@ Approach:
         return maxi;
     }
     
-#6. Maximum XOR With an Element From Array|Queries
+#6. Maximum XOR With an Element From Array|Queries { V-imp }
 Link : https://www.codingninjas.com/codestudio/problems/max-xor-queries_1382020
 Approach :
-->Approach is similar to above problem + Use of offline queries.
+-> Approach is similar to above problem + Use of offline queries.
+-> Saving queries in vector of pairs and traversing it on one go!
 
 
 
