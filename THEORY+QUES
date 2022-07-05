@@ -84,5 +84,9 @@ Approach :
 -> Approach is similar to above problem + Use of offline queries.
 -> Saving queries in vector of pairs and traversing it on one go!
 
-
+#7. Maximum Distance { Google OA , V-IMP }
+Link : https://www.codingninjas.com/codestudio/test-series/google-online-assessment-test-series/offering/2402150/problem/14783
+Approach :
+-> Sirf 2 childs ho skte hai 0 and 1 , So take TreeNode* left for 0 & TreeNode* right for 1.
+-> Get maximum diameter wala sawal hai , agr leftDepth>0 && rightDepth>0 { String exist kr bhi rhi hai ya nhi } then update maximum Diameter!
 
